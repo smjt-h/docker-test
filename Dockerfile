@@ -35,6 +35,8 @@ RUN npm install
 RUN npm version
 
 RUN npm ci
+RUN npx prisma
+RUN prisma generate
 
 # --------------------------------------
 #                  TEST
