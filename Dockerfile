@@ -24,12 +24,17 @@ RUN npm version
 
 RUN npm install --only=production
 
+RUN npm version
+
 # copy production node_modules aside
 RUN cp -R node_modules prod_node_modules
 
 # install ALL node_modules, including 'devDependencies'
 RUN npm install
 
+RUN npm version
+
+RUN npm ci
 
 # --------------------------------------
 #                  TEST
