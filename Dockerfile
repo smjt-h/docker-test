@@ -18,6 +18,8 @@ COPY package.json package-lock.json ./
 # --------------------------------------
 FROM BASE as DEPENDENCIES
 
+RUN npm version
+
 RUN npm install --only=production
 
 # copy production node_modules aside
