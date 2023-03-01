@@ -35,6 +35,7 @@ RUN npm install
 RUN npm version
 
 RUN npm ci
+RUN npm install n stable
 RUN npm install prisma --save-dev
 RUN npx prisma
 RUN prisma generate
