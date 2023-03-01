@@ -22,7 +22,7 @@ FROM BASE as DEPENDENCIES
 
 # RUN npm version
 
-RUN npm install -g 8.11.0 --only=production
+RUN npm install -g npm@8.11.0 --only=production
 
 # RUN npm version
 
