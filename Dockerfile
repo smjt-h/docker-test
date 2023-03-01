@@ -18,23 +18,23 @@ COPY package.json package-lock.json ./
 # --------------------------------------
 FROM BASE as DEPENDENCIES
 
-# RUN npm install -g npm@8.11.0
+RUN npm install -g npm@8.11.0
 
-# RUN npm version
+RUN npm version
 
-# RUN npm install --only=production
+RUN npm install --only=production
+
+RUN npm version
 
 # copy production node_modules aside
 RUN cp -R node_modules prod_node_modules
 
 # install ALL node_modules, including 'devDependencies'
-# RUN npm install
+RUN npm install
 
 RUN npm version
-RUN node --version
 
 RUN npm ci
-RUN npm update -g
 RUN npm install prisma --save-dev
 RUN npx prisma
 RUN prisma generate
@@ -65,4 +65,3 @@ COPY ./nodemon.json ./
 EXPOSE $PORT
 
 CMD ["npm", "run", "start"]
-
