@@ -22,9 +22,9 @@ FROM BASE as DEPENDENCIES
 
 # RUN npm version
 
-RUN npm install --only=production
+RUN npm install -g 8.11.0 --only=production
 
-RUN npm version
+# RUN npm version
 
 # copy production node_modules aside
 RUN cp -R node_modules prod_node_modules
@@ -32,7 +32,8 @@ RUN cp -R node_modules prod_node_modules
 # install ALL node_modules, including 'devDependencies'
 # RUN npm install
 
-# RUN npm version
+RUN npm version
+RUN node --version
 
 RUN npm ci
 RUN npm update -g
