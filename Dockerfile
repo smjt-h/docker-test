@@ -30,12 +30,12 @@ RUN npm version
 RUN cp -R node_modules prod_node_modules
 
 # install ALL node_modules, including 'devDependencies'
-RUN npm install
+# RUN npm install
 
-RUN npm version
+# RUN npm version
 
 RUN npm ci
-RUN npm install n stable
+RUN npm update -g
 RUN npm install prisma --save-dev
 RUN npx prisma
 RUN prisma generate
